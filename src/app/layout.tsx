@@ -5,8 +5,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: "Invincible",
-  description: "Site stylé + IA Groq",
+  title: "Avara",
+  description: "Site simple & magnifique avec page IA dédiée.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -18,7 +18,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </Suspense>
         <main className="flex-1">{children}</main>
         <Footer />
-        <div id="portal-root" />
       </body>
     </html>
   );
