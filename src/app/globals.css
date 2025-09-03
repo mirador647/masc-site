@@ -2,34 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 🌌 Fond global animé */
 body {
-  @apply text-white font-sans;
-  background: radial-gradient(circle at top, rgba(99, 102, 241, 0.15), transparent 70%) no-repeat,
-              linear-gradient(135deg, #0a0a0a, #111827, #1f2937);
-  min-height: 100vh;
-}
-
-/* Scrollbar custom */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #6366f1, #8b5cf6);
-  border-radius: 10px;
-}
-
-/* Boutons néon */
-.btn {
-  @apply px-6 py-3 rounded-lg font-semibold text-white shadow-lg transition-transform;
-  background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
-}
-.btn:hover { transform: scale(1.05); }
-
-/* Cartes flottantes */
-.card {
-  @apply bg-gray-900/60 backdrop-blur-lg rounded-2xl shadow-lg p-6 border border-gray-700;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 25px rgba(99, 102, 241, 0.6);
+  @apply bg-black text-white;
+  background: radial-gradient(circle at top, #1a0033, #000000);
+  font-family: 'Poppins', sans-serif;
 }
