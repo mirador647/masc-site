@@ -1,17 +1,39 @@
+// src/components/Features.tsx
+const features = [
+  {
+    title: "IA dédiée (Avara)",
+    desc:
+      "Réponses rapides, suivi des conversations, envoi de fichiers—dans une page dédiée.",
+  },
+  {
+    title: "Coran FR & AR",
+    desc:
+      "Navigation simple. Ajoute les textes ou JSON au format de ton choix sans casser le site.",
+  },
+  {
+    title: "Suivi & Calendrier",
+    desc:
+      "Planifie, note tes objectifs, et visualise tes progrès facilement.",
+  },
+  {
+    title: "Design épuré",
+    desc:
+      "Sections claires, surfaces en verre, contraste lisible, et animations discrètes.",
+  },
+];
+
 export default function Features() {
-  const features = [
-    { t: "IA dédiée", d: "Page IA séparée, animation d’écriture, pièces jointes, export." },
-    { t: "Suivi & Calendrier", d: "Enregistre, filtre, mini-calendrier, pont vers l’IA." },
-    { t: "Péchomètre", d: "Catégories, sévérité, repentance, streaks, export JSON." },
-  ];
   return (
-    <section className="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-3 gap-6">
-      {features.map((f, i) => (
-        <div key={i} className="bg-black/50 border border-purple-700/30 rounded-2xl p-6">
-          <div className="text-xl font-bold text-purple-300">{f.t}</div>
-          <div className="text-gray-300 mt-2">{f.d}</div>
+    <div className="grid md:grid-cols-2 gap-4">
+      {features.map((f) => (
+        <div
+          key={f.title}
+          className="rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/10 p-6"
+        >
+          <h3 className="text-xl font-semibold mb-1">{f.title}</h3>
+          <p className="text-gray-300">{f.desc}</p>
         </div>
       ))}
-    </section>
+    </div>
   );
 }

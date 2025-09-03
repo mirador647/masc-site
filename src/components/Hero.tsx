@@ -1,31 +1,50 @@
-"use client";
-import { motion } from "framer-motion";
-import Link from "next/link";
-
+// src/components/Hero.tsx
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
-      <div className="pointer-events-none absolute -top-32 -left-32 w-[40rem] h-[40rem] rounded-full bg-purple-700/15 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-40 -right-20 w-[35rem] h-[35rem] rounded-full bg-fuchsia-700/15 blur-3xl" />
-      <div className="max-w-6xl mx-auto px-6 py-20 md:py-28 text-center">
-        <motion.h1 initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}
-          className="text-5xl md:text-6xl font-extrabold tracking-tight">
-          <span className="text-white">Avara — </span>
-          <span className="text-purple-400 drop-shadow-[0_0_20px_rgba(168,85,247,0.6)]">organisé & clair</span>
-        </motion.h1>
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.15 }}
-          className="mt-5 text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
-          Planifie, note, suis. Une page IA dédiée t’accompagne quand tu en as besoin.
-        </motion.p>
-        <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
-          className="mt-9 flex items-center justify-center gap-3">
-          <Link href="/ai" className="px-5 py-3 rounded-xl bg-purple-600 hover:bg-purple-700 transition shadow-lg shadow-purple-700/30">
-            Page IA
-          </Link>
-          <Link href="/categories" className="px-5 py-3 rounded-xl border border-purple-600/60 hover:bg-purple-600/10 transition">
-            Catégories
-          </Link>
-        </motion.div>
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-purple-700/20 blur-3xl" />
+        <div className="absolute -bottom-24 -right-24 w-[28rem] h-[28rem] rounded-full bg-indigo-700/20 blur-3xl" />
+      </div>
+
+      <div className="relative max-w-6xl mx-auto px-6 pt-16 md:pt-24">
+        <span className="inline-flex items-center gap-2 text-xs md:text-sm text-purple-300/80 bg-purple-900/30 border border-purple-500/20 rounded-full px-3 py-1">
+          <span className="inline-block w-2 h-2 rounded-full bg-purple-400" />
+          Avara — Assistant IA + Outils quotidiens
+        </span>
+
+        <h1 className="mt-6 text-4xl md:text-6xl font-extrabold leading-tight">
+          Un espace simple, beau et utile<br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-300">
+            pour avancer chaque jour
+          </span>
+        </h1>
+
+        <p className="mt-4 text-gray-300 max-w-2xl">
+          Discute avec Avara, explore le Coran (FR & AR), note tes objectifs,
+          fais ton suivi, et garde tes idées au même endroit.
+        </p>
+
+        <div className="mt-8 flex flex-wrap gap-3">
+          <a
+            href="/ai"
+            className="px-5 py-3 rounded-xl bg-purple-600 hover:bg-purple-500 transition font-medium"
+          >
+            Parler à Avara
+          </a>
+          <a
+            href="/quran"
+            className="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 transition font-medium"
+          >
+            Coran FR & AR
+          </a>
+          <a
+            href="/categories"
+            className="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 transition font-medium"
+          >
+            Accès rapide
+          </a>
+        </div>
       </div>
     </section>
   );
