@@ -1,9 +1,16 @@
-import ChatFull from "@/components/ChatFull";
+// src/app/page.tsx
+import { Suspense } from "react";
+import Hero from "@/components/Hero";
+import Features from "@/components/Features";
 
-export default function AIPage() {
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
+export default function Home() {
   return (
-    <main className="bg-gradient-to-b from-black via-gray-900 to-purple-950 text-white">
-      <ChatFull />
-    </main>
+    <Suspense fallback={<div className="p-6 text-gray-400">Chargement…</div>}>
+      <Hero />
+      <Features />
+    </Suspense>
   );
 }

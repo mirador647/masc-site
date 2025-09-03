@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import ChatFull from "@/components/ChatFull";
 
-export const dynamic = "force-dynamic"; // évite le prerender
+export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export default function AIPage() {

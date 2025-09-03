@@ -1,3 +1,4 @@
+// src/app/layout.tsx
 import "./globals.css";
 import { Suspense } from "react";
 import Navbar from "@/components/Navbar";
