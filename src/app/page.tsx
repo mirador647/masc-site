@@ -1,11 +1,11 @@
-import Hero from "@/components/Hero";
+import Hero3D from "@/components/Hero3D";
 import Features from "@/components/Features";
 import Chatbot from "@/components/Chatbot";
 
 export default function Home() {
   return (
     <>
-      <Hero />
+      <Hero3D />
       <Features />
       <Chatbot />
     </>

@@ -1,7 +1,9 @@
 export default function Footer() {
   return (
-    <footer className="bg-black/70 text-gray-400 text-center py-6 text-sm border-t border-purple-700/40">
-      © {new Date().getFullYear()} Invincible. Tous droits réservés.
+    <footer className="bg-black/70 border-t border-purple-700/30">
+      <div className="max-w-6xl mx-auto px-4 py-6 text-center text-sm text-gray-400">
+        © {new Date().getFullYear()} Invincible — Design néon 💜
+      </div>
     </footer>
   );
 }

@@ -6,9 +6,10 @@ const nextConfig = {
   reactStrictMode: true,
   experimental: { appDir: true },
   webpack: (config) => {
+    // alias @ -> src
     config.resolve.alias["@"] = path.resolve(__dirname, "src");
     return config;
-  }
+  },
 };
 
 module.exports = nextConfig;
