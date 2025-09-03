@@ -2,8 +2,76 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 🎨 Couleurs & Style Global */
 html, body {
-  background-color: #0a0a0a; /* fond sombre */
-  color: #ffffff;           /* texte blanc */
-  font-family: system-ui, sans-serif;
+  background: linear-gradient(135deg, #0a0a0a, #111827, #1f2937); /* Dégradé sombre */
+  color: #f9fafb; /* Texte blanc cassé */
+  font-family: 'Inter', system-ui, sans-serif;
+  scroll-behavior: smooth;
+  min-height: 100vh;
+}
+
+/* 🌙 Scrollbar custom */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #111827;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #6366f1, #8b5cf6);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #4f46e5, #7c3aed);
+}
+
+/* ✨ Effet sur les liens */
+a {
+  @apply text-indigo-400 transition-colors duration-300;
+}
+a:hover {
+  @apply text-indigo-300 underline;
+}
+
+/* ⚡ Boutons animés */
+button {
+  @apply px-4 py-2 rounded-lg font-semibold text-white 
+         bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500
+         shadow-lg transition-transform duration-300;
+}
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.8);
+}
+
+/* 🎭 Cartes flottantes */
+.card {
+  @apply bg-gray-900/60 backdrop-blur-md rounded-2xl shadow-lg p-6 border border-gray-700;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(99, 102, 241, 0.6);
+}
+
+/* 🌌 Animation d’apparition */
+.fade-in {
+  animation: fadeIn 1s ease-in-out forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ✨ Animation Glow */
+.glow-text {
+  color: #fff;
+  text-shadow: 0 0 10px #6366f1, 0 0 20px #8b5cf6, 0 0 30px #ec4899;
+}
+
+/* 🎇 Section Hero */
+.hero {
+  @apply flex flex-col items-center justify-center text-center min-h-screen;
+  background: radial-gradient(circle at top, rgba(99, 102, 241, 0.2), transparent 70%);
 }

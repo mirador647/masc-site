@@ -1,30 +1,28 @@
 import "./globals.css";
-import type { Metadata } from "next";
-import Link from "next/link";
+import { ReactNode } from "react";
 
-export const metadata: Metadata = {
-  title: "MASC — Muslim Assistant Smart Companion",
-  description: "Ton assistant musulman numérique. IA halal avec Coran, Sunna et avis des savants.",
+export const metadata = {
+  title: "MASC - Assistant Musulman",
+  description: "Ton compagnon numérique basé sur le Coran et la Sunna",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr">
-      <body className="bg-neutral-950 text-white font-sans">
-        {/* Navbar */}
-        <header className="fixed top-0 w-full z-50 bg-neutral-950/70 backdrop-blur border-b border-neutral-800">
-          <div className="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
-            <h1 className="text-2xl font-extrabold text-green-400 tracking-wide">MASC</h1>
-            <nav className="flex gap-6 text-neutral-300">
-              <Link href="/" className="hover:text-white transition">Accueil</Link>
-              <Link href="/chat" className="hover:text-white transition">Assistant</Link>
-              <Link href="/about" className="hover:text-white transition">À propos</Link>
-            </nav>
-          </div>
+      <body className="min-h-screen flex flex-col">
+        {/* HEADER */}
+        <header className="bg-black/30 backdrop-blur-md text-white p-4 text-center text-2xl font-bold shadow-lg">
+          🌙 Assistant MASC
         </header>
-        <main className="pt-20">{children}</main>
-        <footer className="text-center text-neutral-500 py-6 border-t border-neutral-800 text-sm">
-          © {new Date().getFullYear()} MASC — Muslim Assistant Smart Companion
+
+        {/* CONTENT */}
+        <main className="flex-1 container mx-auto px-4 py-6">
+          {children}
+        </main>
+
+        {/* FOOTER */}
+        <footer className="bg-black/30 backdrop-blur-md text-gray-300 p-4 text-center text-sm">
+          © {new Date().getFullYear()} MASC - Inspiré par le Coran & la Sunna
         </footer>
       </body>
     </html>
