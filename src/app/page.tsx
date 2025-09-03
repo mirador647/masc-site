@@ -1,13 +1,13 @@
-import Hero3D from "../components/Hero3D";
-import Features from "../components/Features";
-import Chatbot from "../components/Chatbot";
+import Hero from "@/components/Hero";
+import Features from "@/components/Features";
+import Chatbot from "@/components/Chatbot";
 
 export default function Home() {
   return (
-    <main>
-      <Hero3D />
+    <>
+      <Hero />
       <Features />
       <Chatbot />
-    </main>
+    </>
   );
 }
