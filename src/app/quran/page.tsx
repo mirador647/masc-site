@@ -29,16 +29,16 @@ export default function QuranPage() {
     setError(null); setAr(null); setFr(null); setSurah(n);
     try {
       const [arRes, frRes] = await Promise.all([
-        fetch(`/quran/ar/${n}.json`),
-        fetch(`/quran/fr/${n}.json`)
+        fetch(`/quran/ar/${n}.json`, { cache: "no-store" }),
+        fetch(`/quran/fr/${n}.json`, { cache: "no-store" })
       ]);
       if (!arRes.ok || !frRes.ok) {
-        setError("Fichiers manquants. Placez les JSON dans /public/quran/ar et /public/quran/fr (1..114).");
+        setError("Fichiers manquants. Place les JSON dans /public/quran/ar et /public/quran/fr (1..114).");
         return;
       }
       setAr(await arRes.json());
       setFr(await frRes.json());
-    } catch (e) {
+    } catch {
       setError("Erreur de chargement des fichiers.");
     }
   };
@@ -46,7 +46,7 @@ export default function QuranPage() {
   useEffect(() => { load(1); }, []);
 
   return (
-    <main className="max-w-6xl mx-auto px-4 py-10 space-y-6">
+    <main className="max-w-6xl mx-auto px-4 py-10 space-y-6 text-white">
       <h1 className="text-4xl font-bold text-purple-400">Coran — Français & Arabe</h1>
 
       <div className="flex gap-3 items-center">
@@ -66,8 +66,8 @@ export default function QuranPage() {
         <div className="border border-amber-600/60 bg-amber-600/10 p-4 rounded-xl text-amber-200">
           {error}
           <div className="text-xs opacity-80 mt-2">
-            Format attendu: {"{ \"surah\": n, \"ayahs\": [{\"n\":1,\"text\":\"...\"}, ...] }"}.<br/>
-            Placez les fichiers ici: <code>/public/quran/ar/&lt;n&gt;.json</code> et <code>/public/quran/fr/&lt;n&gt;.json</code>.
+            Format: {"{ \"surah\": n, \"ayahs\": [{\"n\":1,\"text\":\"...\"}, ...] }"}<br/>
+            Chemins: <code>/public/quran/ar/&lt;n&gt;.json</code> et <code>/public/quran/fr/&lt;n&gt;.json</code>.
           </div>
         </div>
       )}
