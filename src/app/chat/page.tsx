@@ -1,86 +1,57 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 export default function ChatPage() {
   const [messages, setMessages] = useState<{ role: string; content: string }[]>([]);
   const [input, setInput] = useState("");
-  const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
-
-  const sendMessage = async () => {
+  async function sendMessage() {
     if (!input.trim()) return;
-
-    const newMessage = { role: "user", content: input };
-    setMessages((prev) => [...prev, newMessage]);
+    const newMessages = [...messages, { role: "user", content: input }];
+    setMessages(newMessages);
     setInput("");
 
-    try {
-      const res = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: input }),
-      });
-      const data = await res.json();
-
-      setMessages((prev) => [
-        ...prev,
-        { role: "assistant", content: data.reply || "⚠️ Pas de réponse." },
-      ]);
-    } catch (error) {
-      setMessages((prev) => [
-        ...prev,
-        { role: "assistant", content: "❌ Erreur serveur." },
-      ]);
-    }
-  };
+    const res = await fetch("/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: input }),
+    });
+    const data = await res.json();
+    setMessages([...newMessages, { role: "assistant", content: data.reply }]);
+  }
 
   return (
-    <div className="flex flex-col h-[85vh] max-w-3xl mx-auto bg-black/40 backdrop-blur-md rounded-xl shadow-lg p-4">
-      <h1 className="text-3xl font-bold text-center text-indigo-400 mb-4">
-        💬 Assistant MASC
-      </h1>
+    <div className="max-w-3xl mx-auto card">
+      <h2 className="text-2xl font-bold mb-4">💬 Chat avec MASC</h2>
 
-      {/* Zone messages */}
-      <div className="flex-1 overflow-y-auto space-y-4 p-2">
-        {messages.map((msg, idx) => (
+      <div className="space-y-3 max-h-[60vh] overflow-y-auto mb-4">
+        {messages.map((m, i) => (
           <motion.div
-            key={idx}
+            key={i}
+            className={`p-3 rounded-xl max-w-[80%] ${
+              m.role === "user"
+                ? "ml-auto bg-indigo-600 text-white"
+                : "mr-auto bg-gray-800 text-gray-200"
+            }`}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className={`p-3 rounded-lg max-w-[75%] ${
-              msg.role === "user"
-                ? "bg-indigo-600 text-white ml-auto"
-                : "bg-gray-700 text-gray-100"
-            }`}
           >
-            {msg.content}
+            {m.content}
           </motion.div>
         ))}
-        <div ref={messagesEndRef} />
       </div>
 
-      {/* Zone input */}
-      <div className="flex mt-4">
+      <div className="flex gap-2">
         <input
-          type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-          placeholder="Écris ta question..."
-          className="flex-1 px-4 py-2 rounded-l-lg bg-gray-800 text-white focus:outline-none"
+          className="flex-1 px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          placeholder="Écris ton message..."
         />
-        <button
-          onClick={sendMessage}
-          className="px-6 py-2 bg-indigo-600 hover:bg-indigo-700 rounded-r-lg text-white font-bold transition"
-        >
-          Envoyer
-        </button>
+        <button onClick={sendMessage} className="btn">Envoyer</button>
       </div>
     </div>
   );
