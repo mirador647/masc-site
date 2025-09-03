@@ -38,7 +38,9 @@ export default function Chatbot() {
           onChange={(e) => setInput(e.target.value)}
           placeholder="Pose ta question..."
         />
-        <button onClick={sendMessage} className="px-4 bg-purple-600">Envoyer</button>
+        <button onClick={sendMessage} className="px-4 bg-purple-600">
+          Envoyer
+        </button>
       </div>
     </div>
   );

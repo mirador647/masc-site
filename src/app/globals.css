@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 body {
-  @apply bg-black text-white;
   background: radial-gradient(circle at top, #1a0033, #000000);
   font-family: 'Poppins', sans-serif;
 }

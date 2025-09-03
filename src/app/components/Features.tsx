@@ -11,9 +11,7 @@ const features = [
 export default function Features() {
   return (
     <section className="py-20 text-center">
-      <h2 className="text-4xl font-bold text-purple-400 mb-10">
-        Pourquoi choisir l’invincibilité ?
-      </h2>
+      <h2 className="text-4xl font-bold text-purple-400 mb-10">Pourquoi choisir l’invincibilité ?</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 px-10">
         {features.map((f, i) => (
           <motion.div

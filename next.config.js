@@ -1,8 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true, // 🔥 ignore ESLint sur Vercel
-  },
+  reactStrictMode: true,
+  experimental: {
+    appDir: true
+  }
 };
 
 module.exports = nextConfig;
