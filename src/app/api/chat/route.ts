@@ -8,11 +8,18 @@ export async function POST(req: Request) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${process.env.GROQ_API_KEY}`, // clé API
+        "Authorization": `Bearer ${process.env.GROQ_API_KEY}`,
       },
       body: JSON.stringify({
         model: "meta-llama/llama-4-scout-17b-16e-instruct",
-        messages: [{ role: "user", content: message }],
+        messages: [
+          {
+            role: "system",
+            content:
+              "Tu es MASC, une IA musulmane qui aide les gens à rester concentrés, éviter les péchés, rappeler les prières, et donner des conseils bienveillants selon l’islam. Sois bref, clair et spirituel.",
+          },
+          { role: "user", content: message },
+        ],
       }),
     });
 
