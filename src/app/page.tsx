@@ -1,64 +1,67 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-neutral-950 text-white font-sans flex flex-col">
-      {/* Navbar */}
-      <header className="flex justify-between items-center px-8 py-6 border-b border-neutral-800">
-        <h1 className="text-2xl font-bold text-green-400">MASC</h1>
-        <nav className="flex gap-6 text-neutral-300">
-          <Link href="/" className="hover:text-white">Accueil</Link>
-          <Link href="/chat" className="hover:text-white">Assistant</Link>
-          <Link href="/about" className="hover:text-white">À propos</Link>
-        </nav>
-      </header>
+    <div className="relative min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-black via-neutral-950 to-neutral-900 text-white overflow-hidden">
+      {/* Background glowing orbs */}
+      <div className="absolute -top-32 -left-32 w-96 h-96 bg-green-500/20 rounded-full blur-[120px] animate-pulse"></div>
+      <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-emerald-400/20 rounded-full blur-[120px] animate-pulse"></div>
 
-      {/* Hero Section */}
-      <section className="flex-1 flex flex-col items-center justify-center text-center px-6">
-        <h2 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
-          Reste <span className="text-green-400">focus</span>.  
-          <br /> Reste <span className="text-green-400">pur</span>.
-        </h2>
-        <p className="text-lg md:text-xl text-neutral-400 max-w-2xl mb-8">
-          MASC est ton assistant musulman numérique.  
-          Répond uniquement avec le Coran 📖, la Sunna authentique 🕌 et les avis fiables des savants.  
-          Toujours avec respect, bienveillance et clarté.
-        </p>
-        <div className="flex gap-4">
-          <Link href="/chat" className="px-6 py-3 rounded-xl bg-green-500 text-black font-semibold hover:bg-green-400 transition">
-            Essayer l’assistant
-          </Link>
-          <Link href="/about" className="px-6 py-3 rounded-xl border border-neutral-700 font-semibold hover:bg-neutral-800 transition">
-            En savoir plus
-          </Link>
-        </div>
+      <motion.h1
+        className="text-5xl md:text-7xl font-extrabold text-center leading-tight"
+        initial={{ opacity: 0, y: -40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+      >
+        Reste <span className="text-green-400">focus</span>. <br />
+        Reste <span className="text-green-400">pur</span>.
+      </motion.h1>
+
+      <motion.p
+        className="mt-6 text-lg md:text-xl text-neutral-300 max-w-2xl text-center"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.3 }}
+      >
+        MASC est ton assistant musulman numérique.  
+        Une IA halal, nourrie par le Coran 📖, la Sunna 🕌 et les avis fiables des savants.  
+        Pour t’aider à rester droit, productif et connecté à Allah.
+      </motion.p>
+
+      <motion.div
+        className="mt-8 flex gap-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.6 }}
+      >
+        <Link href="/chat" className="px-6 py-3 rounded-xl bg-green-500 text-black font-semibold hover:bg-green-400 transition">
+          Essayer MASC
+        </Link>
+        <Link href="/about" className="px-6 py-3 rounded-xl border border-neutral-700 font-semibold hover:bg-neutral-800 transition">
+          En savoir plus
+        </Link>
+      </motion.div>
+
+      {/* Features section */}
+      <section className="mt-24 grid md:grid-cols-3 gap-8 max-w-6xl px-6">
+        {[
+          { title: "📖 Références Authentiques", desc: "Coran, Sunna et avis de savants fiables uniquement." },
+          { title: "🤖 IA au service du bien", desc: "Une IA qui protège ton temps et ton cœur." },
+          { title: "🔒 Respect & Sécurité", desc: "Aucune collecte de données. Usage 100% privé." }
+        ].map((f, i) => (
+          <motion.div
+            key={i}
+            className="p-6 rounded-2xl border border-neutral-800 bg-neutral-900/50 hover:bg-neutral-800 transition"
+            whileHover={{ scale: 1.05 }}
+          >
+            <h4 className="text-xl font-semibold mb-2">{f.title}</h4>
+            <p className="text-neutral-400">{f.desc}</p>
+          </motion.div>
+        ))}
       </section>
-
-      {/* Features */}
-      <section className="px-6 py-16 bg-neutral-900">
-        <h3 className="text-2xl font-bold text-center mb-12">Pourquoi choisir MASC ?</h3>
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <div className="p-6 rounded-xl border border-neutral-800 bg-neutral-950">
-            <h4 className="text-lg font-semibold mb-2">📖 Références Authentiques</h4>
-            <p className="text-neutral-400">Toutes les réponses basées sur le Coran, la Sunna et les avis de savants fiables.</p>
-          </div>
-          <div className="p-6 rounded-xl border border-neutral-800 bg-neutral-950">
-            <h4 className="text-lg font-semibold mb-2">🤖 IA au service du bien</h4>
-            <p className="text-neutral-400">Une intelligence artificielle conçue pour aider, protéger et rappeler le bien.</p>
-          </div>
-          <div className="p-6 rounded-xl border border-neutral-800 bg-neutral-950">
-            <h4 className="text-lg font-semibold mb-2">🔒 Respect & Sécurité</h4>
-            <p className="text-neutral-400">Aucune collecte de données. Ton usage reste privé et confidentiel.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="text-center text-neutral-500 py-6 border-t border-neutral-800 text-sm">
-        © {new Date().getFullYear()} MASC — Muslim Assistant Smart Companion
-      </footer>
-    </main>
+    </div>
   );
 }
