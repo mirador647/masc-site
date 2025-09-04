@@ -1,18 +1,15 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --card-bg: rgba(17, 17, 22, 0.8);
-  --border: rgba(147, 51, 234, 0.4);
+:root { color-scheme: light dark; }
+html { height: 100%; }
+body {
+  /* Tailwind via @apply */
+  @apply bg-white text-neutral-900 dark:bg-zinc-950 dark:text-zinc-100;
 }
 
-* { box-sizing: border-box; }
+/* Liens lisibles */
+a { @apply text-blue-700 underline-offset-2 hover:underline dark:text-blue-400; }
 
-html, body {
-  scroll-behavior: smooth;
-}
+/* Blocs "surface" réutilisables */
+.surface { @apply bg-white text-neutral-900 dark:bg-zinc-900 dark:text-zinc-50; }
 
-::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-thumb { background: rgba(126,34,206,.65); border-radius: 999px; }
-::-webkit-scrollbar-track { background: rgba(255,255,255,.05); }
+/* Bordures douces */
+.card { @apply rounded-2xl border p-4; }
