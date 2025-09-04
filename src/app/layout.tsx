@@ -4,9 +4,12 @@ import { Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export const metadata = {
   title: "Avara",
-  description: "Site simple & magnifique avec page IA dédiée.",
+  description: "Assistant IA + outils quotidiens (Coran, suivi, objectifs)."
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

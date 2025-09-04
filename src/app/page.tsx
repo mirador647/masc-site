@@ -21,11 +21,8 @@ export default function Page() {
         <Features />
       </section>
 
-      {/* Carrousel horizontal auto-défilant (pause au survol) */}
       <section className="max-w-7xl mx-auto px-0">
-        <h2 className="px-6 text-2xl md:text-3xl font-bold mb-4">
-          Catégories populaires
-        </h2>
+        <h2 className="px-6 text-2xl md:text-3xl font-bold mb-4">Catégories populaires</h2>
         <AutoMarquee
           items={[
             { label: "Coran", href: "/quran" },
@@ -35,23 +32,20 @@ export default function Page() {
             { label: "Péchés / Journal", href: "/sins" },
             { label: "Hadiths & Notes", href: "/hadiths" },
             { label: "Trackers", href: "/trackers" },
-            { label: "Catégories", href: "/categories" },
+            { label: "Catégories", href: "/categories" }
           ]}
         />
       </section>
 
-      {/* Section galerie pour insérer tes images / présentation */}
       <section className="max-w-7xl mx-auto px-6">
         <h2 className="text-2xl md:text-3xl font-bold mb-4">Présentation & images</h2>
         <p className="text-gray-300 mb-6 max-w-3xl">
-          Ajoute ici une présentation de ton projet. Tu peux remplacer les vignettes
-          par tes images dans <code>/public/images/gallery/</code>. Clique sur une
-          vignette pour l’agrandir (ou remplace le lien par ce que tu veux).
+          Ajoute ici une présentation de ton projet. Remplace les vignettes par tes images dans
+          <code> /public/images/gallery/</code>.
         </p>
         <Gallery />
       </section>
 
-      {/* CTA final */}
       <section className="max-w-6xl mx-auto px-6 pb-16">
         <div className="rounded-2xl border border-white/10 p-8 md:p-12 bg-gradient-to-br from-purple-900/30 to-indigo-900/30">
           <h3 className="text-2xl md:text-3xl font-bold mb-3">Prêt à démarrer ?</h3>
@@ -60,16 +54,10 @@ export default function Page() {
             et avance pas à pas.
           </p>
           <div className="flex gap-3">
-            <a
-              href="/ai"
-              className="px-5 py-3 rounded-xl bg-purple-600 hover:bg-purple-500 transition font-medium"
-            >
+            <a href="/ai" className="px-5 py-3 rounded-xl bg-purple-600 hover:bg-purple-500 transition font-medium">
               Ouvrir Avara
             </a>
-            <a
-              href="/categories"
-              className="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 transition font-medium"
-            >
+            <a href="/categories" className="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 transition font-medium">
               Explorer les catégories
             </a>
           </div>

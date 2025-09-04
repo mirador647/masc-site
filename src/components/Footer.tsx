@@ -1,7 +1,10 @@
+// src/components/Footer.tsx
 export default function Footer() {
   return (
-    <footer className="border-t border-purple-700/20 py-6 text-center text-sm text-gray-400">
-      Avara © {new Date().getFullYear()}
+    <footer className="mt-20 border-t border-white/10">
+      <div className="max-w-6xl mx-auto px-6 py-8 text-sm text-gray-400">
+        © {new Date().getFullYear()} Avara — Fais simple, avance chaque jour.
+      </div>
     </footer>
   );
 }

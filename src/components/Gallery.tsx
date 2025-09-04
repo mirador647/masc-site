@@ -9,14 +9,13 @@ const images = [
   "/images/gallery/3.jpg",
   "/images/gallery/4.jpg",
   "/images/gallery/5.jpg",
-  "/images/gallery/6.jpg",
+  "/images/gallery/6.jpg"
 ];
 
 function ImageTile({ src, index }: { src: string; index: number }) {
   const [errored, setErrored] = useState(false);
 
   if (errored) {
-    // Fallback si l'image n'existe pas encore
     return (
       <div className="group rounded-xl overflow-hidden border border-white/10 bg-white/5 grid place-items-center h-40 md:h-48">
         <span className="text-gray-400 text-sm">/public{src} (à ajouter)</span>
@@ -25,11 +24,7 @@ function ImageTile({ src, index }: { src: string; index: number }) {
   }
 
   return (
-    <a
-      href={src}
-      className="group rounded-xl overflow-hidden border border-white/10 bg-white/5 block"
-      title={`Galerie ${index + 1}`}
-    >
+    <a href={src} className="group rounded-xl overflow-hidden border border-white/10 bg-white/5 block" title={`Galerie ${index + 1}`}>
       <img
         src={src}
         alt={`Galerie ${index + 1}`}

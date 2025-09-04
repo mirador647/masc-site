@@ -21,27 +21,18 @@ export default function Hero() {
         </h1>
 
         <p className="mt-4 text-gray-300 max-w-2xl">
-          Discute avec Avara, explore le Coran (FR & AR), note tes objectifs,
-          fais ton suivi, et garde tes idées au même endroit.
+          Discute avec Avara, explore le Coran (FR & AR), note tes objectifs, fais ton suivi,
+          et garde tes idées au même endroit.
         </p>
 
         <div className="mt-8 flex flex-wrap gap-3">
-          <a
-            href="/ai"
-            className="px-5 py-3 rounded-xl bg-purple-600 hover:bg-purple-500 transition font-medium"
-          >
+          <a href="/ai" className="px-5 py-3 rounded-xl bg-purple-600 hover:bg-purple-500 transition font-medium">
             Parler à Avara
           </a>
-          <a
-            href="/quran"
-            className="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 transition font-medium"
-          >
+          <a href="/quran" className="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 transition font-medium">
             Coran FR & AR
           </a>
-          <a
-            href="/categories"
-            className="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 transition font-medium"
-          >
+          <a href="/categories" className="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 transition font-medium">
             Accès rapide
           </a>
         </div>
