@@ -1,7 +1,9 @@
-﻿{
-  "surah": 1,
-  "ayahs": [
-    { "n": 1, "text": "Au nom d’Allah, le Tout Miséricordieux, le Très Miséricordieux." },
-    { "n": 2, "text": "Louange à Allah, Seigneur de l’univers," }
-  ]
-}
+﻿[
+{ "s": 1, "a": 1, "t": "Au nom d’Allah, le Tout Miséricordieux, le Très Miséricordieux." },
+{ "s": 1, "a": 2, "t": "Louange à Allah, Seigneur de l’univers." },
+{ "s": 1, "a": 3, "t": "Le Tout Miséricordieux, le Très Miséricordieux," },
+{ "s": 1, "a": 4, "t": "Maître du Jour de la rétribution." },
+{ "s": 1, "a": 5, "t": "C’est Toi [Seul] que nous adorons, et c’est Toi [Seul] dont nous implorons secours." },
+{ "s": 1, "a": 6, "t": "Guide‑nous dans le droit chemin," },
+{ "s": 1, "a": 7, "t": "le chemin de ceux que Tu as comblés de faveurs, non pas de ceux qui ont encouru Ta colère, ni des égarés." }
+]
